@@ -2,6 +2,8 @@
   background-color: #ffffff; /* Color del fondo del footer */
   color: #000000; /* Color del texto */
   padding: 20px;
+  border: solid;
+  border-color: #bcbcbc;
 }
 
 .footer-content {
