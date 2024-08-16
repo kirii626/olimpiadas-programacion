@@ -1,0 +1,74 @@
+.product-list {
+  padding: 20px;
+  text-align: center;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+  grid-auto-rows: auto; /* Las filas se ajustarán automáticamente a la altura del contenido */
+  gap: 20px; /* Espacio entre los elementos */
+  margin-top: 20px;
+}
+
+.product-grid .product-card {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ddd; /* Borde ligero alrededor de cada tarjeta */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+  background-color: #fff; /* Fondo blanco para la tarjeta */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-grid .product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* Bordes redondeados para las imágenes */
+  margin-bottom: 10px; /* Espacio debajo de la imagen */
+}
+
+.product-grid .product-card h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.product-grid .product-card p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #555; /* Color de texto gris para el texto de descripción */
+}
+
+.product-grid .product-card .product-price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.product-grid .product-card .add-to-cart {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase; /* Texto en mayúsculas */
+  font-weight: bold;
+}
+
+.product-grid .product-card .add-to-cart:hover {
+  background-color: #444; /* Color más oscuro al pasar el mouse */
+}
+
+.product-grid .product-card:hover {
+  transform: translateY(-5px); /* Eleva la tarjeta al pasar el mouse */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
+}
+
