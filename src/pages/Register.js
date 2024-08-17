@@ -1,7 +1,5 @@
 // src/pages/Register.js
 import React, { useState } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import '../components/styles/Main.css';
 import '../components/styles/Register.css';
 import logoGoogle from '../assets/images/RedesSociales/el-logo-g-de-google.png'
@@ -19,7 +17,7 @@ const Register = () => {
 
   return (
     <>
-      <Header />
+
       <div className="register-container">
         <div className="register-form">
           <h2>Registrarse</h2>
@@ -72,7 +70,6 @@ const Register = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

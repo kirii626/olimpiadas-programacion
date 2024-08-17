@@ -1,4 +1,3 @@
-// src/data/categories.js
 import BocaCamiseta from '../assets/images/Boca camiseta.jpg';
 
 const categories = [
@@ -7,12 +6,15 @@ const categories = [
       products: [
         { 
           id: 1, 
-          name: 'Zapatillas Deportivas', 
+          name: 'Zapatillas dou', 
           description: 'Zapatillas ligeras y cómodas para correr.', 
           price: '$20.000', 
           imageUrl: BocaCamiseta,
           colors: ['#000000', '#FFFFFF', '#FF0000'], 
-          sizes: ['XS', 'S', 'M', 'L', 'XL'] 
+          sizes: ['XS', 'S', 'M', 'L', 'XL'],
+          collection: 'Colecciones', // Agregado
+          lo_mejor: true, // Agregado
+          novedad: true // Agregado
         },
         { 
           id: 2, 
@@ -21,17 +23,97 @@ const categories = [
           price: '$25.000', 
           imageUrl: BocaCamiseta,
           colors: ['#000000', '#FFFFFF', '#FF0000'], 
-          sizes: ['XS', 'S', 'M', 'L', 'XL'] 
+          sizes: ['XS', 'S', 'M', 'L', 'XL'],
+          collection: 'Colecciones', // Agregado
+          lo_mejor: false, // Agregado
+          novedad: false // Agregado
         },
         { 
-          id: 3, 
-          name: 'Zapatos Casuales', 
-          description: 'Zapatos elegantes y cómodos para el día a día.', 
-          price: '$30.000', 
+          id: 144, 
+          name: 'Zapatillas dou', 
+          description: 'Zapatillas ligeras y cómodas para correr.', 
+          price: '$20.000', 
           imageUrl: BocaCamiseta,
           colors: ['#000000', '#FFFFFF', '#FF0000'], 
-          sizes: ['XS', 'S', 'M', 'L', 'XL'] 
+          sizes: ['XS', 'S', 'M', 'L', 'XL'],
+          collection: 'Colecciones', // Agregado
+          lo_mejor: true, // Agregado
+          novedad: true // Agregado
         },
+
+        { 
+          id: 133, 
+          name: 'Zapatillas dou', 
+          description: 'Zapatillas ligeras y cómodas para correr.', 
+          price: '$20.000', 
+          imageUrl: BocaCamiseta,
+          colors: ['#000000', '#FFFFFF', '#FF0000'], 
+          sizes: ['XS', 'S', 'M', 'L', 'XL'],
+          collection: 'Colecciones', // Agregado
+          lo_mejor: true, // Agregado
+          novedad: true // Agregado
+        },
+        { 
+          id: 132, 
+          name: 'Zapatillas dou', 
+          description: 'Zapatillas ligeras y cómodas para correr.', 
+          price: '$20.000', 
+          imageUrl: BocaCamiseta,
+          colors: ['#000000', '#FFFFFF', '#FF0000'], 
+          sizes: ['XS', 'S', 'M', 'L', 'XL'],
+          collection: 'Colecciones', // Agregado
+          lo_mejor: true, // Agregado
+          novedad: true // Agregado
+        },
+        { 
+          id: 224, 
+          name: 'Zapatillas dou', 
+          description: 'Zapatillas ligeras y cómodas para correr.', 
+          price: '$20.000', 
+          imageUrl: BocaCamiseta,
+          colors: ['#000000', '#FFFFFF', '#FF0000'], 
+          sizes: ['XS', 'S', 'M', 'L', 'XL'],
+          collection: 'Colecciones', // Agregado
+          lo_mejor: true, // Agregado
+          novedad: true // Agregado
+        },
+        { 
+          id: 10, 
+          name: 'Zapatillas dou', 
+          description: 'Zapatillas ligeras y cómodas para correr.', 
+          price: '$20.000', 
+          imageUrl: BocaCamiseta,
+          colors: ['#000000', '#FFFFFF', '#FF0000'], 
+          sizes: ['XS', 'S', 'M', 'L', 'XL'],
+          collection: 'Colecciones', // Agregado
+          lo_mejor: true, // Agregado
+          novedad: true // Agregado
+        },
+        { 
+          id: 9, 
+          name: 'Zapatillas dou', 
+          description: 'Zapatillas ligeras y cómodas para correr.', 
+          price: '$20.000', 
+          imageUrl: BocaCamiseta,
+          colors: ['#000000', '#FFFFFF', '#FF0000'], 
+          sizes: ['XS', 'S', 'M', 'L', 'XL'],
+          collection: 'Colecciones', // Agregado
+          lo_mejor: true, // Agregado
+          novedad: true // Agregado
+        },
+        { 
+          id: 8, 
+          name: 'Zapatillas dou', 
+          description: 'Zapatillas ligeras y cómodas para correr.', 
+          price: '$20.000', 
+          imageUrl: BocaCamiseta,
+          colors: ['#000000', '#FFFFFF', '#FF0000'], 
+          sizes: ['XS', 'S', 'M', 'L', 'XL'],
+          collection: 'Colecciones', // Agregado
+          lo_mejor: true, // Agregado
+          novedad: true // Agregado
+        },
+        // Otros productos con sus respectivas propiedades
       ],
     },
     {
@@ -44,7 +126,10 @@ const categories = [
           price: '$15.000', 
           imageUrl: BocaCamiseta,
           colors: ['#000000', '#FFFFFF', '#FF0000'], 
-          sizes: ['XS', 'S', 'M', 'L', 'XL'] 
+          sizes: ['XS', 'S', 'M', 'L', 'XL'],
+          collection: 'Novedades', // Agregado
+          lo_mejor: false, // Agregado
+          novedad: true // Agregado
         },
         { 
           id: 5, 
@@ -53,7 +138,10 @@ const categories = [
           price: '$20.000', 
           imageUrl: BocaCamiseta,
           colors: ['#000000', '#FFFFFF', '#FF0000'], 
-          sizes: ['XS', 'S', 'M', 'L', 'XL'] 
+          sizes: ['XS', 'S', 'M', 'L', 'XL'],
+          collection: 'Colecciones', // Agregado
+          lo_mejor: true, // Agregado
+          novedad: false // Agregado
         },
       ],
     },
@@ -67,7 +155,10 @@ const categories = [
           price: '$10.000', 
           imageUrl: BocaCamiseta,
           colors: ['#000000', '#FFFFFF', '#FF0000'], 
-          sizes: ['XS', 'S', 'M', 'L', 'XL'] 
+          sizes: ['XS', 'S', 'M', 'L', 'XL'],
+          collection: 'Novedades', // Agregado
+          lo_mejor: true, // Agregado
+          novedad: true // Agregado
         },
         { 
           id: 7, 
@@ -76,8 +167,12 @@ const categories = [
           price: '$12.000', 
           imageUrl: BocaCamiseta,
           colors: ['#000000', '#FFFFFF', '#FF0000'], 
-          sizes: ['XS', 'S', 'M', 'L', 'XL'] 
+          sizes: ['XS', 'S', 'M', 'L', 'XL'],
+          collection: 'Colecciones', // Agregado
+          lo_mejor: false, // Agregado
+          novedad: false // Agregado
         },
+        
       ],
     },
   ];

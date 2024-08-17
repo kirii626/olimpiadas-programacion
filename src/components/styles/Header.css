@@ -7,6 +7,7 @@
   color: #000000;
   font-family: "Kanit";
   position: relative;
+  z-index: 100; /* Asegúrate de que el header esté por encima de otros elementos */
 }
 
 .logo img {
@@ -105,7 +106,7 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
   border-radius: 4px;
   font-family: "Kanit";
-  z-index: 1000;
+  z-index: 1000; /* Asegúrate de que el menú desplegable esté por encima del contenido */
   cursor: pointer;
 }
 
@@ -144,6 +145,7 @@
   border-radius: 4px;
   font-family: "Kanit";
   width: auto;
+  z-index: 1000; /* Asegúrate de que el menú desplegable esté por encima del contenido */
 }
 
 .dropdown-products ul {

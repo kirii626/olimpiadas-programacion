@@ -30,3 +30,13 @@ p {
   margin-left: 40px;
   margin-top: 5px;
 }
+.container {
+  min-height: 100vh; /* Ocupa al menos el 100% de la altura de la ventana */
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+  padding-bottom: 50px; /* Asegura que haya espacio para el pie de página */
+}

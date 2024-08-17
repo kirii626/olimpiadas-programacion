@@ -1,74 +1,100 @@
-.product-list {
-  padding: 20px;
-  text-align: center;
+.subcategory-section {
+  margin-bottom: 40px;
 }
 
 .product-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Tres columnas */
-  grid-auto-rows: auto; /* Las filas se ajustarán automáticamente a la altura del contenido */
-  gap: 20px; /* Espacio entre los elementos */
-  margin-top: 20px;
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-.product-grid .product-card {
-  width: 100%;
-  padding: 20px;
-  border: 1px solid #ddd; /* Borde ligero alrededor de cada tarjeta */
-  border-radius: 10px; /* Bordes redondeados */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
-  background-color: #fff; /* Fondo blanco para la tarjeta */
+.product-grid::-webkit-scrollbar {
+  height: 12px;
+}
+
+.product-grid::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 6px;
+}
+
+.product-card {
+  flex: 0 0 auto;
+  width: 300px; /* Ancho fijo para las tarjetas de producto */
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .product-grid .product-card img {
   width: 100%;
   height: auto;
-  border-radius: 10px; /* Bordes redondeados para las imágenes */
-  margin-bottom: 10px; /* Espacio debajo de la imagen */
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.product-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  text-align: left;
 }
 
 .product-grid .product-card h3 {
   font-size: 18px;
   font-weight: bold;
-  margin: 10px 0;
+  margin: 10px 0 5px;
 }
 
 .product-grid .product-card p {
-  font-size: 16px;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.product-grid .product-card .product-category {
+  font-size: 12px;
+  color: #888;
   margin-bottom: 10px;
-  color: #555; /* Color de texto gris para el texto de descripción */
 }
 
 .product-grid .product-card .product-price {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   color: #000;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
 .product-grid .product-card .add-to-cart {
-  display: inline-block;
-  padding: 10px 20px;
+  padding: 8px 15px;
   background-color: #000;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  text-transform: uppercase; /* Texto en mayúsculas */
+  text-transform: uppercase;
   font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .product-grid .product-card .add-to-cart:hover {
-  background-color: #444; /* Color más oscuro al pasar el mouse */
+  background-color: #444;
 }
 
 .product-grid .product-card:hover {
-  transform: translateY(-5px); /* Eleva la tarjeta al pasar el mouse */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
-
