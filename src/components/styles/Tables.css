@@ -105,31 +105,31 @@
     background-color: #f0f0f0;
   }
   
-/* Estilo básico para el botón */
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Ajusta este valor para cambiar la distancia entre la barra de búsqueda y el botón */
+  margin-bottom: 20px; /* Añadir margen inferior para separar del contenido siguiente */
+}
+
+.search-bar {
+  flex: 1; /* Esto hará que la barra de búsqueda ocupe todo el espacio disponible */
+  padding: 10px; /* Añadir padding para mejorar la apariencia */
+  border: 1px solid #ccc; /* Añadir borde */
+  border-radius: 5px; /* Añadir bordes redondeados */
+}
+
 .add-product {
+  padding: 10px 20px;
   background-color: #000;
   color: #fff;
-  font-family: "Kanit";
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: "Kanit", sans-serif;
   border: none;
-  padding: 10px 20px;
-  text-decoration: none; /* Asegúrate de que el texto no tenga subrayado */
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Estilo para el botón cuando está en hover */
 .add-product:hover {
   background-color: #696969;
-}
-
-/* Estilo para el enlace dentro del botón para evitar cambio de color */
-.add-product .link {
-  color: #fff; /* Color del texto en el enlace */
-  text-decoration: none; /* Quitar subrayado del enlace */
-}
-
-/* Asegúrate de que el enlace no sobrescriba el color del texto del botón */
-.add-product .link:hover {
-  color: #fff; /* Mantener el color del texto al hacer hover */
 }

@@ -4,6 +4,10 @@
     background-color: #f4f4f4;
     overflow-y: hidden; /* Evita que admin-container genere su propio scroll */
   }
+
+  h2{
+    padding-left: 20px;
+  }
   
   .content-container {
     flex: 1;

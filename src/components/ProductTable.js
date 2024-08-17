@@ -9,7 +9,7 @@ import {
 } from '@tremor/react';
 import './styles/Tables.css';
 
-export const ProductsTable = ({ onAddProduct }) => {
+export const ProductsTable = ({ onAddProduct, onEditProduct }) => {
   const [dropdownVisible, setDropdownVisible] = useState(null);
 
   const toggleDropdown = (index, event) => {
@@ -27,32 +27,42 @@ export const ProductsTable = ({ onAddProduct }) => {
     }
   };
 
-  const renderDropdown = (index) => (
+  const handleEditClick = (product) => {
+    onEditProduct(product);
+  };
+
+  const renderDropdown = (index, product) => (
     dropdownVisible === index && (
       <div className="dropdown-menu" data-index={index}>
-        <button>Editar</button>
+        <button onClick={() => handleEditClick(product)}>Editar</button>
         <button>Eliminar</button>
       </div>
     )
   );
+
+  const products = [...Array(20).keys()].map((i) => ({
+    id: `#003${i + 4}`,
+    name: `Producto ${i + 1}`,
+    category: `Categoria ${i + 1}`,
+    stock: `Stock ${i + 1}`,
+    price: `$18.000`,
+    image: 'ruta/a/la/imagen.jpg' // Ruta de la imagen
+  }));
 
   return (
     <div className="orders-table-container">
       <h2>Productos</h2>
       <p>Gestiona tu catálogo de productos.</p>
       
-      <div className="search-bar">
-        <input type="text" placeholder="Búsqueda..." />
-      </div>
-
-      <div>
+      <div className="search-bar-container">
+        <input type="text" className="search-bar" placeholder="Búsqueda..." />
         <button className="add-product" onClick={onAddProduct}>Añadir producto</button>
       </div>
 
       <Table>
         <TableHead>
           <TableRow>
-            <TableHeaderCell>Imagen</TableHeaderCell>
+            <TableHeaderCell>ID</TableHeaderCell>
             <TableHeaderCell>Producto</TableHeaderCell>
             <TableHeaderCell>Categoria</TableHeaderCell>
             <TableHeaderCell>Stock</TableHeaderCell>
@@ -62,16 +72,16 @@ export const ProductsTable = ({ onAddProduct }) => {
         </TableHead>
 
         <TableBody>
-          {[...Array(20).keys()].map((i) => (
-            <TableRow key={i}>
-              <TableCell>#003{i + 4}</TableCell>
-              <TableCell>Producto {i + 1}</TableCell>
-              <TableCell>Categoria {i + 1}</TableCell>
-              <TableCell>Stock {i + 1}</TableCell>
-              <TableCell>$18.000</TableCell>
+          {products.map((product, index) => (
+            <TableRow key={index}>
+              <TableCell>{product.id}</TableCell>
+              <TableCell>{product.name}</TableCell>
+              <TableCell>{product.category}</TableCell>
+              <TableCell>{product.stock}</TableCell>
+              <TableCell>{product.price}</TableCell>
               <TableCell>
-                <div className="actions" onClick={(event) => toggleDropdown(i, event)}>↔</div>
-                {renderDropdown(i)}
+                <div className="actions" onClick={(event) => toggleDropdown(index, event)}>↔</div>
+                {renderDropdown(index, product)}
               </TableCell>
             </TableRow>
           ))}

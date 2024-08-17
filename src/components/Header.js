@@ -67,12 +67,10 @@ const Header = () => {
                   <li><Link to="/productos/pantalones">Pantalones</Link></li>
                   <li><Link to="/productos/camisetas">Camisetas</Link></li>
                   <li><Link to="/productos/novedades">Novedades</Link></li>
-                  <li><Link to="/productos/accesorios">Accesorios</Link></li>
                 </ul>
               </div>
             )}
           </li>
-          <li><Link to="/">Contacto</Link></li>
           <li className="search-bar"><SearchBar /></li> {/* Barra de búsqueda */}
         </ul>
       </nav>

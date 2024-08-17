@@ -1,0 +1,35 @@
+.product-list {
+  font-family: 'Kanit', sans-serif;
+  margin-top: 20px;
+}
+
+.product-list h3 {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.product-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-list th, .product-list td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.product-list th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+  color: #333;
+}
+
+.product-list tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.product-list tr:hover {
+  background-color: #f1f1f1;
+}

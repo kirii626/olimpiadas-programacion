@@ -9,7 +9,7 @@ import {
 } from '@tremor/react';
 import './styles/Tables.css';
 
-export const OrdersTable = ({ onViewOrderDetails }) => {
+export const HistoricalTable = ({ onViewOrderDetails }) => {
   const [dropdownVisible, setDropdownVisible] = useState(null);
 
   const toggleDropdown = (index, event) => {
@@ -40,8 +40,8 @@ export const OrdersTable = ({ onViewOrderDetails }) => {
     )
   );
 
-  const orders = [...Array(20).keys()].map((i) => ({
-    id: `#ORD${i + 100}`,
+  const invoices = [...Array(20).keys()].map((i) => ({
+    id: `#INV${i + 100}`,
     date: `2024-08-${i + 1}`,
     customer: `Cliente ${i + 1}`,
     dni: `DNI${i + 100}`,
@@ -49,18 +49,18 @@ export const OrdersTable = ({ onViewOrderDetails }) => {
     email: `cliente${i + 1}@correo.com`,
     phone: `123-456-789${i}`,
     amount: `$${(i + 1) * 1000}`,
-    status: i % 2 === 0 ? 'Pagado' : 'Pendiente'
+    status: 'Pagado' // Solo facturas pagadas
   }));
 
   return (
-    <div className="orders-table-container">
-      <h2>Órdenes</h2>
-      <p>Gestiona tus órdenes aquí.</p>
+    <div className="orders-table-container"> {/* Usar la misma clase que OrdersTable */}
+      <h2>Histórico</h2>
+      <p>Aquí puedes ver todas las facturas históricas.</p>
       
       <Table>
         <TableHead>
           <TableRow>
-            <TableHeaderCell>ID Orden</TableHeaderCell>
+            <TableHeaderCell>ID Factura</TableHeaderCell>
             <TableHeaderCell>Fecha</TableHeaderCell>
             <TableHeaderCell>Cliente</TableHeaderCell>
             <TableHeaderCell>Monto</TableHeaderCell>
@@ -70,16 +70,16 @@ export const OrdersTable = ({ onViewOrderDetails }) => {
         </TableHead>
 
         <TableBody>
-          {orders.map((order, index) => (
+          {invoices.map((invoice, index) => (
             <TableRow key={index}>
-              <TableCell>{order.id}</TableCell>
-              <TableCell>{order.date}</TableCell>
-              <TableCell>{order.customer}</TableCell>
-              <TableCell>{order.amount}</TableCell>
-              <TableCell>{order.status}</TableCell>
+              <TableCell>{invoice.id}</TableCell>
+              <TableCell>{invoice.date}</TableCell>
+              <TableCell>{invoice.customer}</TableCell>
+              <TableCell>{invoice.amount}</TableCell>
+              <TableCell>{invoice.status}</TableCell>
               <TableCell>
                 <div className="actions" onClick={(event) => toggleDropdown(index, event)}>↔</div>
-                {renderDropdown(index, order)}
+                {renderDropdown(index, invoice)}
               </TableCell>
             </TableRow>
           ))}
