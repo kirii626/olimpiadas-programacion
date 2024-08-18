@@ -1,3 +1,5 @@
+/* styles/Footer.css */
+
 .footer {
   background-color: #ffffff; /* Color del fondo del footer */
   color: #000000; /* Color del texto */
@@ -66,4 +68,20 @@
 
 .social-media ul li a:hover {
   color: #bbb;
+}
+
+/* Estilo para el botón de arrepentimiento */
+.footer-column button {
+  background: none;
+  color: #000000;
+  border: none;
+  padding: 0;
+  font-family: 'Kanit', sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.footer-column button:hover {
+  text-decoration: underline;
 }

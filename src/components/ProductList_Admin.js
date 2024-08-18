@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/ProductList.css';
+import './styles/ProductList_Admin.css';
 
 const ProductList = ({ products = [] }) => {
   return (

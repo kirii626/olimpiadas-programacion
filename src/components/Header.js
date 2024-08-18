@@ -7,7 +7,6 @@ import './styles/Header.css';
 import Modal from './Modal';
 import Login from './Login';
 import { TextInput } from '@tremor/react';
-import { SearchBar } from './SearchBar';
 
 export const TextInputHero = () => <TextInput className="search-bar" />; /* revisar si está bien esta línea y el class name al que llama que el anterior en vez de search-bar era 'mx-auto max-w-xs' */
 
@@ -71,7 +70,6 @@ const Header = () => {
               </div>
             )}
           </li>
-          <li className="search-bar"><SearchBar /></li> {/* Barra de búsqueda */}
         </ul>
       </nav>
       <div className="user-options">

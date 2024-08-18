@@ -55,7 +55,6 @@ export const ProductsTable = ({ onAddProduct, onEditProduct }) => {
       <p>Gestiona tu catálogo de productos.</p>
       
       <div className="search-bar-container">
-        <input type="text" className="search-bar" placeholder="Búsqueda..." />
         <button className="add-product" onClick={onAddProduct}>Añadir producto</button>
       </div>
 

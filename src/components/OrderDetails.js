@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/OrderDetails.css';
-import ProductList from './ProductList';
+import ProductList from './ProductList_Admin';
 
 const OrderDetails = ({ order, onClose }) => {
   return (

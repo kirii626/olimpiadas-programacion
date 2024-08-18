@@ -1,8 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; // Importa el componente Link
+// Footer.js
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; 
+import Modal from './Modal'; // Asegúrate de que la ruta sea correcta
 import './styles/Footer.css';
 
 const Footer = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <footer className="footer">
       <div className="footer-content">
@@ -34,7 +46,7 @@ const Footer = () => {
             <li><a href="#">Pagos</a></li>
             <li><a href="#">Envíos</a></li>
             <li><a href="#">Devoluciones</a></li>
-            <li><Link to="/Admin">Administrador</Link></li> {/* Enlace a la página Admin */}
+            <li><button onClick={handleOpenModal}>Botón de arrepentimiento</button></li>
           </ul>
         </div>
         <div className="footer-column">
@@ -53,8 +65,15 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} GainsHub Argentina. Todos los derechos reservados.</p>
+        <p>© {new Date().getFullYear()} GainsHub Argentina. Todos los derechos reservados.</p>
       </div>
+
+      {/* Modal */}
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+        <h2>Por devoluciones o problemas, comunicarse aquí</h2>
+        <p>xxxxxxx@gmail.com</p>
+        <a href="mailto:xxxxxxx@gmail.com" className="gmail-button">Enviar correo</a>
+      </Modal>
     </footer>
   );
 };

@@ -1,8 +1,10 @@
+/* styles/Header.css */
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 70px 0 20px; /* top 0px | right 10px | bottom 0px | left 20px */
+  padding: 0 70px 0 20px; /* top 0px | right 70px | bottom 0px | left 20px */
   background-color: #ffffff;
   color: #000000;
   font-family: "Kanit";
@@ -23,6 +25,7 @@
   list-style: none;
   display: flex;
   gap: 20px;
+  align-items: center; /* Asegura que los elementos estén alineados verticalmente */
 }
 
 .navbar ul li {
@@ -79,13 +82,17 @@
   align-items: center;
   width: 400px;
   height: 40px;
+  margin-right: 20px; /* Añadir margen derecho para separar del icono de usuario */
 }
 
 .search-bar input {
-  padding-right: 40px;
   width: 100%;
   height: 100%;
   font-family: "Kanit";
+  padding: 0 40px 0 10px; /* Añadir padding izquierdo y derecho */
+  border: 1px solid #ccc; /* Añadir borde */
+  border-radius: 5px; /* Añadir bordes redondeados */
+  box-sizing: border-box; /* Asegurar que el padding no afecte el tamaño total */
 }
 
 .search-bar .search-icon {
@@ -93,6 +100,7 @@
   right: 10px;
   color: #000000;
   font-size: 20px;
+  pointer-events: none; /* Asegurar que el icono no interfiera con el input */
 }
 
 .dropdown-user {
