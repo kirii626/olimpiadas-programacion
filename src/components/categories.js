@@ -3,12 +3,14 @@ import BocaCamiseta from '../assets/images/Boca camiseta.jpg';
 const categories = [
     {
       name: 'Calzados',
+      slug: 'calzados', // Añadir slug aquí
+
       products: [
         { 
           id: 1, 
           name: 'Zapatillas dou', 
           description: 'Zapatillas ligeras y cómodas para correr.', 
-          price: '$20.000', 
+          price: '40000', 
           imageUrl: BocaCamiseta,
           colors: ['#000000', '#FFFFFF', '#FF0000'], 
           sizes: ['XS', 'S', 'M', 'L', 'XL'],
@@ -20,7 +22,7 @@ const categories = [
           id: 2, 
           name: 'Botines de Fútbol', 
           description: 'Botines para fútbol de alta calidad.', 
-          price: '$25.000', 
+          price: '25000', 
           imageUrl: BocaCamiseta,
           colors: ['#000000', '#FFFFFF', '#FF0000'], 
           sizes: ['XS', 'S', 'M', 'L', 'XL'],
@@ -32,7 +34,7 @@ const categories = [
           id: 144, 
           name: 'Zapatillas dou', 
           description: 'Zapatillas ligeras y cómodas para correr.', 
-          price: '$20.000', 
+          price: '23000', 
           imageUrl: BocaCamiseta,
           colors: ['#000000', '#FFFFFF', '#FF0000'], 
           sizes: ['XS', 'S', 'M', 'L', 'XL'],
@@ -45,7 +47,7 @@ const categories = [
           id: 133, 
           name: 'Zapatillas dou', 
           description: 'Zapatillas ligeras y cómodas para correr.', 
-          price: '$20.000', 
+          price: '24000', 
           imageUrl: BocaCamiseta,
           colors: ['#000000', '#FFFFFF', '#FF0000'], 
           sizes: ['XS', 'S', 'M', 'L', 'XL'],
@@ -53,77 +55,19 @@ const categories = [
           lo_mejor: true, // Agregado
           novedad: true // Agregado
         },
-        { 
-          id: 132, 
-          name: 'Zapatillas dou', 
-          description: 'Zapatillas ligeras y cómodas para correr.', 
-          price: '$20.000', 
-          imageUrl: BocaCamiseta,
-          colors: ['#000000', '#FFFFFF', '#FF0000'], 
-          sizes: ['XS', 'S', 'M', 'L', 'XL'],
-          collection: 'Colecciones', // Agregado
-          lo_mejor: true, // Agregado
-          novedad: true // Agregado
-        },
-        { 
-          id: 224, 
-          name: 'Zapatillas dou', 
-          description: 'Zapatillas ligeras y cómodas para correr.', 
-          price: '$20.000', 
-          imageUrl: BocaCamiseta,
-          colors: ['#000000', '#FFFFFF', '#FF0000'], 
-          sizes: ['XS', 'S', 'M', 'L', 'XL'],
-          collection: 'Colecciones', // Agregado
-          lo_mejor: true, // Agregado
-          novedad: true // Agregado
-        },
-        { 
-          id: 10, 
-          name: 'Zapatillas dou', 
-          description: 'Zapatillas ligeras y cómodas para correr.', 
-          price: '$20.000', 
-          imageUrl: BocaCamiseta,
-          colors: ['#000000', '#FFFFFF', '#FF0000'], 
-          sizes: ['XS', 'S', 'M', 'L', 'XL'],
-          collection: 'Colecciones', // Agregado
-          lo_mejor: true, // Agregado
-          novedad: true // Agregado
-        },
-        { 
-          id: 9, 
-          name: 'Zapatillas dou', 
-          description: 'Zapatillas ligeras y cómodas para correr.', 
-          price: '$20.000', 
-          imageUrl: BocaCamiseta,
-          colors: ['#000000', '#FFFFFF', '#FF0000'], 
-          sizes: ['XS', 'S', 'M', 'L', 'XL'],
-          collection: 'Colecciones', // Agregado
-          lo_mejor: true, // Agregado
-          novedad: true // Agregado
-        },
-        { 
-          id: 8, 
-          name: 'Zapatillas dou', 
-          description: 'Zapatillas ligeras y cómodas para correr.', 
-          price: '$20.000', 
-          imageUrl: BocaCamiseta,
-          colors: ['#000000', '#FFFFFF', '#FF0000'], 
-          sizes: ['XS', 'S', 'M', 'L', 'XL'],
-          collection: 'Colecciones', // Agregado
-          lo_mejor: true, // Agregado
-          novedad: true // Agregado
-        },
+      
         // Otros productos con sus respectivas propiedades
       ],
     },
     {
       name: 'Pantalones',
+       slug: 'pantalones',
       products: [
         { 
           id: 4, 
           name: 'Pantalón Deportivo', 
           description: 'Pantalón ligero y flexible para entrenar.', 
-          price: '$15.000', 
+          price: '20000', 
           imageUrl: BocaCamiseta,
           colors: ['#000000', '#FFFFFF', '#FF0000'], 
           sizes: ['XS', 'S', 'M', 'L', 'XL'],
@@ -135,7 +79,7 @@ const categories = [
           id: 5, 
           name: 'Jeans', 
           description: 'Jeans de corte ajustado para uso casual.', 
-          price: '$20.000', 
+          price: '27000', 
           imageUrl: BocaCamiseta,
           colors: ['#000000', '#FFFFFF', '#FF0000'], 
           sizes: ['XS', 'S', 'M', 'L', 'XL'],
@@ -147,12 +91,13 @@ const categories = [
     },
     {
       name: 'Camisetas',
+       slug: 'camisetas',
       products: [
         { 
           id: 6, 
           name: 'Camiseta de Entrenamiento', 
           description: 'Camiseta transpirable para deportes.', 
-          price: '$10.000', 
+          price: '15000', 
           imageUrl: BocaCamiseta,
           colors: ['#000000', '#FFFFFF', '#FF0000'], 
           sizes: ['XS', 'S', 'M', 'L', 'XL'],
@@ -164,7 +109,7 @@ const categories = [
           id: 7, 
           name: 'Camiseta Casual', 
           description: 'Camiseta cómoda para el día a día.', 
-          price: '$12.000', 
+          price: '12500', 
           imageUrl: BocaCamiseta,
           colors: ['#000000', '#FFFFFF', '#FF0000'], 
           sizes: ['XS', 'S', 'M', 'L', 'XL'],

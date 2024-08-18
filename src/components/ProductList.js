@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './styles/ProductList.css';
 
-const ProductList = ({ categories }) => {
+const ProductList = ({ categories, addToWishList, wishList }) => {
   const { categoryName } = useParams();
 
   // Filtrar los productos según la categoría seleccionada
@@ -30,6 +30,18 @@ const ProductList = ({ categories }) => {
   // Subcategorías a mostrar
   const subcategories = ['Novedades', 'Colecciones', 'Lo mejor'];
 
+  // Verificar si un producto está en la lista de deseos
+  const isInWishList = (product) => {
+    return wishList.some(item => item.id === product.id);
+  };
+
+  // Función para añadir un producto a la lista de deseos
+  const handleWishlistClick = (product) => {
+    // Asegurarse de que el nombre de la categoría se incluya en el objeto del producto
+    const productWithCategory = { ...product, categoryName: categoryName.toLowerCase() };
+    addToWishList(productWithCategory);
+  };
+
   return (
     <div>
       <h1>Productos de {category.name}</h1>
@@ -45,15 +57,27 @@ const ProductList = ({ categories }) => {
                   {filteredProducts.map(product => (
                     <div key={product.id} className="product-card">
                       <img src={product.imageUrl} alt={product.name} className="product-image" />
-                      <div className="product-card-content">
-                        <h3 className="product-name">{product.name}</h3>
-                        <p className="product-description">{product.description}</p>
-                        <span className="product-category">Categoría: {category.name}</span>
-                        <div className="product-price">{product.price}</div>
-                        <Link to={`/productos/${categoryName}/${product.id}`}>
-                          <button className="add-to-cart">Ver más</button>
-                        </Link>
+                      
+                      {/* Botón del corazón para añadir a la lista de deseos */}
+                      <div className="wishlist-icon-container">
+                        <button
+                          className={`wishlist-button ${isInWishList(product) ? 'in-wishlist' : ''}`}
+                          onClick={() => handleWishlistClick(product)}
+                        >
+                          ♥
+                        </button>
                       </div>
+
+                      <div className="product-card-content">
+  <h3 className="product-name">{product.name}</h3>
+  <p className="product-description">{product.description}</p>
+  <span className="product-category">Categoría: {category.name}</span>
+  <div className="product-price">${product.price}</div> {/* Agrega el signo de dólar aquí */}
+  <Link to={`/productos/${categoryName}/${product.id}`}>
+    <button className="add-to-cart">Ver más</button>
+  </Link>
+</div>
+
                     </div>
                   ))}
                 </div>

@@ -1,28 +1,34 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import './styles/ProductDetail.css'; 
-import categories from './categories'; // Asegúrate de que la ruta sea correcta
+import categories from './categories';
 
-const ProductDetail = () => {
+const ProductDetail = ({ addToCart }) => {
   const { categoryName, productId } = useParams();
+  const navigate = useNavigate(); // Para redirigir después de añadir al carrito
 
-  // Encontrar la categoría y el producto seleccionado
   const category = categories.find(cat => cat.name.toLowerCase() === categoryName.toLowerCase());
   const product = category ? category.products.find(prod => prod.id === parseInt(productId)) : null;
 
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
-  const [isFavorite, setIsFavorite] = useState(false); // Añadir estado para el corazón
+  const [isFavorite, setIsFavorite] = useState(false);
 
   if (!product) {
     return <p>Producto no disponible</p>;
   }
 
-  const colors = product.colors || [];
-  const sizes = product.sizes || [];
-
-  const toggleFavorite = () => {
-    setIsFavorite(!isFavorite); // Alternar entre favorito y no favorito
+  const handleAddToCart = () => {
+    if (selectedColor && selectedSize) {
+      addToCart({
+        ...product,
+        selectedColor,
+        selectedSize
+      });
+      navigate('/cart'); // Redirigir al carrito después de añadir el producto
+    } else {
+      alert('Por favor, selecciona un color y un tamaño.');
+    }
   };
 
   return (
@@ -34,7 +40,7 @@ const ProductDetail = () => {
         <h2>{product.name}</h2>
         <button 
           className={`favorite-button ${isFavorite ? 'active' : ''}`}
-          onClick={toggleFavorite}
+          onClick={() => setIsFavorite(!isFavorite)}
         >
           {isFavorite ? '❤️' : '♡'}
         </button>
@@ -42,20 +48,20 @@ const ProductDetail = () => {
         <div className="product-options">
           <h3>Color</h3>
           <div className="color-options">
-            {colors.map((color, index) => (
+            {product.colors.map((color, index) => (
               <button
                 key={index}
                 className={`color-button ${selectedColor === color ? 'selected' : ''}`}
                 style={{ backgroundColor: color }}
                 onClick={() => setSelectedColor(color)}
               >
-                {color === selectedColor ? '✓' : ''}
+                {selectedColor === color ? '✓' : ''}
               </button>
             ))}
           </div>
           <h3>Talles</h3>
           <div className="size-options">
-            {sizes.map((size, index) => (
+            {product.sizes.map((size, index) => (
               <button
                 key={index}
                 className={`size-button ${selectedSize === size ? 'selected' : ''}`}
@@ -66,8 +72,11 @@ const ProductDetail = () => {
             ))}
           </div>
         </div>
-        <p className="product-price">{product.price}</p>
-        <button className="add-to-cart-button">Añadir al carrito</button>
+        <p className="product-price">${product.price}</p> {/* Agrega el signo de dólar aquí */}
+
+        <button className="add-to-cart-button" onClick={handleAddToCart}>
+          Añadir al carrito
+        </button>
       </div>
     </div>
   );

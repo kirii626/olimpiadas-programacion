@@ -10,12 +10,9 @@ const Footer = () => {
           <h4>PRODUCTOS</h4>
           <ul>
             <li><Link to="/productos/calzados">Calzados</Link></li>
-            <li><Link to="/productos/zapatillas">Zapatillas</Link></li>
-            <li><Link to="/productos/ropa">Ropa</Link></li>
+            <li><Link to="/productos/pantalones">Pantalones</Link></li>
+            <li><Link to="/productos/camisetas">Camisetas</Link></li>
             <li><Link to="/productos/accesorios">Accesorios</Link></li>
-            <li><Link to="/productos/botines">Botines</Link></li>
-            <li><Link to="/productos/conjuntos">Conjuntos</Link></li>
-            <li><Link to="/productos/novedades">Novedades</Link></li>
           </ul>
         </div>
         <div className="footer-column">

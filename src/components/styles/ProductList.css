@@ -51,6 +51,30 @@
   text-align: left;
 }
 
+/* Estilo para el botón de añadir a deseos (icono del corazón) */
+.wishlist-icon-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.wishlist-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  color: #888;
+}
+
+.wishlist-button.in-wishlist {
+  color: red; /* Color rojo cuando el producto está en la lista de deseos */
+}
+
+.wishlist-button:hover {
+  transform: scale(1.2);
+}
+
 .product-grid .product-card h3 {
   font-size: 18px;
   font-weight: bold;

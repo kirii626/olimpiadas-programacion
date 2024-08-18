@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import user from '../assets/images/User.jpg'; 
-import heart from '../assets/images/heartr.png'
-import shopping from '../assets/images/shopping.svg'
+import heart from '../assets/images/heartr.png';
+import shopping from '../assets/images/shopping.svg';
 import './styles/Header.css';
 import Modal from './Modal';
 import Login from './Login';
-import { TextInput } from '@tremor/react';
 import { SearchBar } from './SearchBar';
 
-export const TextInputHero = () => <TextInput className="search-bar" />; /* revisar si está bien esta línea y el class name al que llama que el anterior en vez de search-bar era 'mx-auto max-w-xs' */
-
-const Header = () => {
+const Header = ({ cartItems }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado para saber si está logueado
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -26,28 +23,14 @@ const Header = () => {
     setIsProductsDropdownOpen(prevState => !prevState);
   };
 
-  const handleProfileClick = () => {
-    if (isLoggedIn) {
-      navigate('/miperfil');
-    } else {
-      navigate('/login');
-    }
-  };
-
-  const handleLoginTest = () => {
-    setIsLoggedIn(true);
-  };
-
   const handleLogout = () => {
     setIsLoggedIn(false);
+    setIsDropdownOpen(false); // Cierra el dropdown al hacer logout
   };
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
+  const handleLoginSuccess = () => {
+    setIsLoggedIn(true); // Marca al usuario como logueado
+    setIsModalOpen(false); // Cierra el modal al iniciar sesión
   };
 
   return (
@@ -66,13 +49,12 @@ const Header = () => {
                   <li><Link to="/productos/calzados">Calzados</Link></li>
                   <li><Link to="/productos/pantalones">Pantalones</Link></li>
                   <li><Link to="/productos/camisetas">Camisetas</Link></li>
-                  <li><Link to="/productos/novedades">Novedades</Link></li>
                   <li><Link to="/productos/accesorios">Accesorios</Link></li>
                 </ul>
               </div>
             )}
           </li>
-          <li><Link to="/">Contacto</Link></li>
+          
           <li className="search-bar"><SearchBar /></li> {/* Barra de búsqueda */}
         </ul>
       </nav>
@@ -89,36 +71,38 @@ const Header = () => {
               {isLoggedIn ? (
                 <>
                   <li><Link to="/miperfil">Mi Perfil</Link></li>
-                  <li><Link to="/micarrito">Ver Carrito</Link></li>
                   <li><button onClick={handleLogout}>Cerrar Sesión</button></li>
                 </>
               ) : (
                 <>
                   <li><Link to="/Register">Registrarse</Link></li>
-                  <li><button onClick={openModal}>Iniciar Sesion</button></li>
+                  <li><button onClick={() => setIsModalOpen(true)}>Iniciar Sesión</button></li>
                 </>
               )}
             </ul>
           </div>
         )}
-        <div className='wishlist-icon'>
+        <Link to="/wishlist" className="wishlist-icon">
           <img
-          className="heart-icon icon"
-          src={heart}
-          alt="Wishlist Icon"
+            className="heart-icon icon"
+            src={heart}
+            alt="Wishlist Icon"
           />
-        </div>
+        </Link>
         <div className='carrito-icon'>
-          <img
-          className="bag-icon icon"
-          src={shopping}
-          alt="Shopping Icon"
-          />
-      </div>
+          <Link to="/cart">
+            <img
+              className="bag-icon icon"
+              src={shopping}
+              alt="Shopping Icon"
+            />
+            {cartItems.length > 0 && <span className="cart-count">{cartItems.length}</span>}
+          </Link>
+        </div>
       </div>
       {isModalOpen && (
-        <Modal isOpen={isModalOpen} onClose={closeModal}>
-          <Login />
+        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+          <Login onLoginSuccess={handleLoginSuccess} />
         </Modal>
       )}
     </header>
